@@ -8,7 +8,7 @@ const sequelize = require('./config/connection');
 const routes = require('./controllers');
 
 const app = express();
-const PORT = process.env.PORT || 2423;
+const PORT = process.env.PORT || 6969;
 
 const sess = {
     secret: 'adnjoaewoiew',

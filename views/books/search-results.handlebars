@@ -1,0 +1,22 @@
+{{#each books}}
+  <div>
+    {{#if volumeInfo.imageLinks}}
+      <img src="{{volumeInfo.imageLinks.smallThumbnail}}" alt="Book Cover">
+    {{else}}
+      <img src="default-thumbnail.jpg" alt="Default Book Cover">
+    {{/if}}
+    <h2>{{volumeInfo.title}}</h2>
+    <p>{{volumeInfo.description}}</p>
+    <p>{{volumeInfo.authors}}</p>
+    <p>{{volumeInfo.publisher}}</p>
+    
+    
+    {{#if volumeInfo.industryIdentifiers}}
+      {{#each volumeInfo.industryIdentifiers}}
+        <p>{{this.type}}: {{this.identifier}}</p>
+      {{/each}}
+    {{else}}
+      <p>No industry identifiers available</p>
+    {{/if}}
+  </div>
+{{/each}}

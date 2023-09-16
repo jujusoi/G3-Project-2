@@ -41,10 +41,6 @@ Books.init({
         type: DataTypes.STRING(1000),
         allowNull: false,
     },
-    total_score: {
-        type: DataTypes.FLOAT,
-        allowNull: true,
-    },
     average_score: {
         type: DataTypes.FLOAT,
         allowNull: true,

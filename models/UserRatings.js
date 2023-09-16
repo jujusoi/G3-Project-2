@@ -1,21 +1,24 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class FinalRating extends Model{};
+class UserRatings extends Model{};
 
-FinalRating.init({
+UserRatings.init({
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
         allowNull: false,
+        primaryKey: true,
         autoIncrement: true,
     },
-    rating: {
-        type: DataTypes.NUMBER,
+    score_given: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        validate: {
-            isNumeric: true,
-            len: [0, 10],
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id',
         },
     },
     book_id: {
@@ -31,7 +34,7 @@ FinalRating.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'final_score',
+    modelName: 'user_ratings',
 });
 
-module.exports = FinalRating;
+module.exports = UserRatings;

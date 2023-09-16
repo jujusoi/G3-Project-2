@@ -1,23 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comments extends Model{};
+class CategoryJunction extends Model{};
 
-Comments.init({
+CategoryJunction.init({
     id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         primaryKey: true,
-        allowNull: false,
-        autoIncrement: true,
+        autoIncrement: true
     },
-    comment_description: {
-        type: DataTypes.STRING(4000),
-        allowNull: false,
-    },
-    user_id: {
+    category_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'user',
+            model: 'category',
             key: 'id',
         },
     },
@@ -34,7 +30,7 @@ Comments.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'category_junction',
 });
 
-module.exports = Comments;
+module.exports = CategoryJunction;

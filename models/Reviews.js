@@ -1,19 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class BookTag extends Model{};
+class Reviews extends Model{};
 
-BookTag.init({
+Reviews.init({
     id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        allowNull: false,
+        autoIncrement: true,
     },
-    tag_id: {
+    comment_description: {
+        type: DataTypes.STRING(4000),
+        allowNull: false,
+    },
+    user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'tag',
+            model: 'user',
             key: 'id',
         },
     },
@@ -30,7 +34,7 @@ BookTag.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag_junction',
+    modelName: 'review',
 });
 
-module.exports = BookTag;
+module.exports = Reviews;

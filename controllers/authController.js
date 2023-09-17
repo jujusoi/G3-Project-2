@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models");
 const bcrypt = require("bcrypt");
+const { User } = require('../models/')
 
 // User Registration Route
 router.get("/register", (req, res) => {
@@ -10,11 +10,10 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    await db.User.create({
+    await User.create({
       username: req.body.username,
       email: req.body.email,
-      password: hashedPassword,
+      password: req.body.password,
     });
     res.redirect("/login"); // Redirect to login page after successful registration
   } catch (error) {
@@ -30,12 +29,9 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const user = await db.User.findOne({ where: { email: req.body.email } });
+    const user = await User.findOne({ where: { email: req.body.email } });
     if (user) {
-      const validPassword = await bcrypt.compare(
-        req.body.password,
-        user.password
-      );
+      const validPassword = await user.checkPassword(req.body.password);
       if (validPassword) {
         req.session.user = {
           id: user.id,

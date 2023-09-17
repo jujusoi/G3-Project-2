@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const api = require('./api');
 
 router.get('/', async (req, res) => {
     try {
@@ -7,6 +8,8 @@ router.get('/', async (req, res) => {
         res.status(500).json(`Couldn't load up server D:`);
     }
 });
+
+router.use('/api', api);
 
 module.exports = router;
 

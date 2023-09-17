@@ -8,11 +8,10 @@ router.get("/books/search", (req, res) => {
     res.render("books/search");
   } else {
     axios
-      .get("https://www.googleapis.com/books/v1/volumes", {
-        params: { q: req.query.q, key: process.env.GOOGLE_BOOKS_API_KEY },
-      })
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.q}&maxResults=${1}&key=${process.env.GOOGLE_BOOKS_API_KEY}`)
       .then((response) => {
-        res.render("books/search-results", { books: response.data.items });
+        res.json(response.data);
+        console.table(response.data.items);
       })
       .catch((error) => {
         console.error(error);

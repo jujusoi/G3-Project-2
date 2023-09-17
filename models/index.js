@@ -1,46 +1,82 @@
-"use strict";
+const User = require('./user');
+const Books = require('./Books');
+const Categories = require('./Categories');
+const CategoryJunction = require('./CategoryJunction');
+const Reviews = require('./Reviews');
+const UserRatings = require('./UserRatings');
+const Wishlist = require('./Wishlist');
 
-const fs = require("fs");
-const path = require("path");
-const Sequelize = require("sequelize");
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development";
-const config = require("../config/config.json")[env];
-const db = {};
-
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-
-fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-    );
-  })
-  .forEach((file) => {
-    const model = require(path.join(__dirname, file))(
-      sequelize,
-      Sequelize.DataTypes
-    );
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+User.hasMany(Books, {
+    foreignKey: 'uploaded_by',
+    onDelete: 'CASCADE',
+});
+Books.belongsTo(User, {
+    foreignKey: 'uploaded_by',
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+User.hasMany(Reviews, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+Reviews.belongsTo(User, {
+    foreignKey: 'user_id',
+});
 
-module.exports = db;
+User.hasMany(UserRatings, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+UserRatings.belongsTo(User, {
+    foreignKey: 'user_id',
+});
+
+User.hasMany(Wishlist, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+Wishlist.belongsTo(User, {
+    foreignKey: 'user_id',
+});
+
+
+Books.hasMany(UserRatings, {
+    foreignKey: 'book_id',
+    onDelete: 'CASCADE',
+});
+UserRatings.belongsTo(Books, {
+    foreignKey: 'book_id',
+});
+
+Books.hasMany(Reviews, {
+    foreignKey: 'book_id',
+    onDelete: 'CASCADE',
+});
+Reviews.belongsTo(Books, {
+    foreignKey: 'book_id',
+});
+
+Books.hasMany(Wishlist, {
+    foreignKey: 'book_id',
+    onDelete: 'CASCADE',
+});
+Wishlist.belongsTo(Books, {
+    foreignKey: 'book_id',
+});
+
+Books.belongsToMany(Categories, 
+    { 
+    through: CategoryJunction,
+    foreignKey: 'book_id',
+    onDelete: 'CASCADE',
+    }
+);
+
+Categories.belongsToMany(Books,
+    {
+    through: CategoryJunction,
+    foreignKey: 'category_id',
+    onDelete: 'CASCADE',
+    }
+);
+
+module.exports = { User, Books, Categories, CategoryJunction, Reviews, UserRatings, Wishlist };

@@ -5,7 +5,6 @@ const session = require("express-session");
 const exprhb = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-const db = require("./models");
 const sequelize = require("./config/connection");
 
 const app = express();
@@ -50,7 +49,7 @@ app.use(bookRoutes);
 const routes = require("./controllers");
 app.use(routes);
 
-db.sequelize.sync().then(() => {
+sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });

@@ -104,10 +104,23 @@ const writeIntoJSON = (object) => {
     })
 };
 
+const readFile = () => {
+    fs.readFile('./seeds/booksInformation.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+        } else {
+            const parsedData = JSON.parse(data);
+            parsedData.forEach(book => {
+                console.log(`${book.category_name}, ${book.id}`);
+            });
+        }
+    })
+}
+
 const subjectRandomizer = () => {
     const choices = ['mystery', 'sci-fi', 'fantasy', 'romance', 'thriller', 'history', 'horror', 'biography', 'adventure', 'dystopian', 'comedy', 'crime', 'manga', 'anime'];
     const index = Math.floor(Math.random() * choices.length);
     return choices[index];
 }
 
-fetchData(10);
+readFile();

@@ -1,1 +1,50 @@
-[{"category_name":["Alternative histories (Fiction)"],"id":1},{"category_name":["Drama"],"id":2},{"category_name":["Civil law"],"id":3},{"category_name":["Boarding school students"],"id":4},{"category_name":["Bank robberies"],"id":5}]
+[
+    {
+        "id": "1",
+        "category_name": "Civil law"
+    },
+    {
+        "id": "2",
+        "category_name": "Juvenile Fiction"
+    },
+    {
+        "id": "3",
+        "category_name": "Adventure"
+    },
+    {
+        "id": "4",
+        "category_name": "Adventure stories"
+    },
+    {
+        "id": "5",
+        "category_name": "Performing Arts"
+    },
+    {
+        "id": "6",
+        "category_name": "Alternative histories (Fiction)"
+    },
+    {
+        "id": "7",
+        "category_name": "Boarding school students"
+    },
+    {
+        "id": "8",
+        "category_name": "Bank robberies"
+    },
+    {
+        "id": "9",
+        "category_name": "Drama"
+    },
+    {
+        "id": "10",
+        "category_name": "History"
+    },
+    {
+        "id": "11",
+        "category_name": "Comics & Graphic Novels"
+    },
+    {
+        "id": "12",
+        "category_name": "Business & Economics"
+    }
+]

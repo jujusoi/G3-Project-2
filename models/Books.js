@@ -16,18 +16,16 @@ Books.init({
     },
     book_description: {
         type: DataTypes.TEXT,
-        allowNull: false,
     },
     publisher: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     publish_year: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    authors: {
-        type: DataTypes.STRING(200),
+    author: {
+        type: DataTypes.STRING,
         allowNull: false,
     },
     page_count: {

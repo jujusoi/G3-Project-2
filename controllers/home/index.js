@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const book = require('./books');
+const categories = require('./tags');
 const { Books, Categories } = require('../../models');
 const handlebars = require('handlebars');
 
@@ -25,5 +27,8 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: `Failed to get book page`});
     }
 });
+
+router.use('/books', book);
+router.use('/categories', categories);
 
 module.exports = router;

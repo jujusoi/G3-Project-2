@@ -94,3 +94,17 @@ th, td {
 #login-container {
     background-color: var(--fg);
 }
+
+.star-unfilled {
+    text-decoration: none;
+    font-size: 20px;
+    color: #3a3a3a72;
+    cursor: pointer;
+  }
+
+  .star-filled {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ff8e5a;
+    cursor: pointer;
+  }

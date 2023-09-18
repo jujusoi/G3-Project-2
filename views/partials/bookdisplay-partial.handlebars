@@ -1,4 +1,4 @@
-                        <tr> 
+<tr>
                             <th scope="row">{{increment @index}}</th>
                             <th class="img-ph book-stuff"><img data-bookid="{{id}}" src="{{icon}}" alt="{{categories.[0].category_name}}" height="100px" width="80px"></th>
                             <td class="text-start book-stuff" data-bookid="{{id}}">{{book_title}}</td>
@@ -13,6 +13,8 @@
                                     {{/if}}
                                 </div>
                             </td>
-                            <td></td>
+                            <td>
+                                <p class="star {{#if (inWishlist id wishlistStuff)}}star-filled{{else}}star-unfilled{{/if}}" data-wish-bookid="{{id}}">★</p>
+                            </td>
                         </tr>
-
+                        

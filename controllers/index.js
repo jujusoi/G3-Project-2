@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const api = require('./api');
+const home = require('./home');
 
 router.get('/', async (req, res) => {
     try {
@@ -10,6 +11,7 @@ router.get('/', async (req, res) => {
 });
 
 router.use('/api', api);
+router.use('/home', home);
 
 module.exports = router;
 

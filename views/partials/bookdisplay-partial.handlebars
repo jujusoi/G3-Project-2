@@ -1,0 +1,18 @@
+                        <tr> 
+                            <th scope="row">{{increment @index}}</th>
+                            <th class="img-ph book-stuff"><img data-bookid="{{id}}" src="{{icon}}" alt="{{categories.[0].category_name}}" height="100px" width="80px"></th>
+                            <td class="text-start book-stuff" data-bookid="{{id}}">{{book_title}}</td>
+                            <td>{{categories.[0].category_name}}</td>
+                            <td>
+                                <div>
+                                    <a>★</a>
+                                    {{#if average_score}}
+                                    <span>{{average_score}}</span>
+                                    {{else}}
+                                    <span>Unrated</span>
+                                    {{/if}}
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+

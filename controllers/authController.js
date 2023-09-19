@@ -5,7 +5,7 @@ const { User } = require('../models/')
 
 // User Registration Route
 router.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", { title: 'READMi Register' });
 });
 
 router.post("/register", async (req, res) => {
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
 
 // User Login Route
 router.get("/login", (req, res) => {
-  res.render("login"); // Render the login page
+  res.render("login", { title: 'READMi Login' }); // Render the login page
 });
 
 router.post("/login", async (req, res) => {

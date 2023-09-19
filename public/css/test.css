@@ -109,7 +109,7 @@ td {
     cursor: pointer;
 }
 
-.star-filled {
+  .star-filled {
     text-decoration: none;
     font-size: 20px;
     color: #ff8e5a;

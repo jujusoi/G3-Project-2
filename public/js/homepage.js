@@ -1,4 +1,6 @@
 const bookClick = document.querySelector('#book-table-ting');
+const loginButt = document.querySelector("#loginBtn");
+const registerBtn = document.querySelector("#signupBtn");
 
 bookClick.addEventListener('click', function(event) {
     const target = event.target;
@@ -41,4 +43,12 @@ bookClick.addEventListener('click', async function(event) {
             alert(`Could not delete`);
         }
     }
+});
+
+loginButt.addEventListener('click', function() {
+    location.href = '/login';
+});
+
+registerBtn.addEventListener('click', function() {
+    location.href = '/register';
 });

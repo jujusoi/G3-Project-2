@@ -19,26 +19,33 @@ router.get('/', async (req, res) => {
             order: [[ 'id', 'ASC']],
             limit: 20,
         });
-        const wishlistData = await Wishlist.findAll({
-            where: {
-                user_id: req.session.user.id,
-            },
-        });
-    const mappedWishlist = wishlistData.map((wish) => wish.get({ plain: true }));
+        if (req.session.user) {
+            const wishlistData = await Wishlist.findAll({
+                where: {
+                    user_id: req.session.user.id,
+                },
+            });
+            const mappedWishlist = wishlistData.map((wish) => wish.get({ plain: true }));
 
-    const mappedData = bookData.map((book) => book.get({ plain: true }));
-    mappedData.forEach(book => {
-        book.wishlistStuff = mappedWishlist
-    });
-
-    console.log(mappedData);
-    if (mappedData) {
-        res.status(200).render('book-display', {
-            mappedData, mappedWishlist
-        })
-    } else {
-        res.status(400).json({ message: `Could not return books`});
-    }
+            const mappedData = bookData.map((book) => book.get({ plain: true }));
+            mappedData.forEach(book => {
+                book.wishlistStuff = mappedWishlist
+            });
+            const userInfo = req.session.user;
+            console.log(userInfo);
+            if (mappedData) {
+                res.status(200).render('book-display', {
+                    mappedData, userInfo
+                })
+            } else {
+                res.status(400).json({ message: `Could not return books`});
+            }
+        } else {
+            const mappedData = bookData.map((book) => book.get({ plain: true }));
+            res.status(200).render('book-display', {
+                mappedData
+            });
+        }
     } catch (err) {
         res.status(500).json({ message: `Failed to get book page`});
     }

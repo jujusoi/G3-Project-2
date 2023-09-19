@@ -1,20 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+
+    <!-- login container -->
+    <div class="d-flex justify-content-center mt-5">
+        <div id="login-container" class="w-25 rounded p-4">
+            <!-- logo -->
+            <div class="d-flex justify-content-center">
+                <img src="/assets/ReadMi-logo.png" width="auto" height="38px" alt="readmi-logo">
+            </div>
+
+            <!-- login title -->
+            <div class="text-center mt-5 txt-wht">
+                <h3>LOGIN</h3>
+                <p>Welcome!</p>
+            </div>
+
+            <!-- login form -->
+            <div class="d-flex justify-content-center mt-5">
+                <form action="/login" method="POST" class="w-75 txt-wht">
+                    <!-- email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control"aria-describedby="emailHelp" required>
+                    </div>
+                    <!-- password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" required>
+                    </div>
+                    <!-- submit login -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="submit" class="btn btnA px-3">LOGIN</button>
+                    </div>
+                    <!-- redirects to sign up -->
+                    <p class="text-center mt-5">Don't have an account? 
+                        <br> SIGN UP to create a new account.</p>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btnB px-3">SIGN UP</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
 </body>
+
 </html>

@@ -19,9 +19,17 @@
             </section>
 
             <section>
-                <!-- buttons -->
-                <button type="button" id="loginBtn" class="btn btnB px-3">LOGIN</button>
-                <button type="button" id="signupBtn" class="btn btnA px-3 ms-2">SIGN UP</button>
+                <!-- NOT logged in -->
+                <div id="no-login-btns">
+                    <button type="button" id="loginBtn" class="btn btnB px-3">LOGIN</button>
+                    <button type="button" id="signupBtn" class="btn btnA px-3 ms-2">SIGN UP</button>
+                </div>
+
+                <!-- IS logged in -->
+                <div id="login-btns">
+                    <button type="button" id="loginBtn" class="btn btnA px-3">MY ACCOUNT</button>
+                    <button type="button" id="signupBtn" class="btn btnB px-3 ms-2">LOGOUT</button>
+                </div>
             </section>
         </div>
     </nav>
@@ -63,67 +71,67 @@
 
             <div class="w-100">
                 <table class="table table-striped table-hover text-center align-middle">
-                        <tbody>
-                            <thead class="py-2">
-                                <!-- table row titles -->
-                                <tr">
-                                    <th scope="col" class="col-1">#</th>
-                                    <th scope="col" class="col-1"></th>
-                                    <th scope="col" class="col-5">Title</th>
-                                    <th scope="col" class="col-1">Genre</th>
-                                    <th scope="col" class="col-1">Score</th>
-                                    <th scope="col" class="col-1">Bookmarked</th>
-                                    </tr>
-                            </thead>
-                            <!-- ranking card template -->
-                            <tr>
-                                <th scope="row">{{ranking number}}</th>
-                                <td class="img-ph">{{book cover}}</td>
-                                <td class="text-start">{{book title}}</td>
-                                <td>{{book genre}}</td>
-                                <td>
-                                    <div>
-                                        <a>★</a>
-                                        <span>{{book score}}</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
-                                </td>
-                            </tr>
-                            <!-- placeholder 2nd row -->
-                            <tr>
-                                <th scope="row">2</th>
-                                <td class="img-ph">IMG</td>
-                                <td class="text-start">Hairy Porter: The Great Battle Against The Pickle Lord</td>
-                                <td>Fantasy</td>
-                                <td>
-                                    <div>
-                                        <a>★</a>
-                                        <span>7.8</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
-                                </td>
-                            </tr>
-                            <!-- placeholder 3rd row -->
-                            <tr>
-                                <th scope="row">3</th>
-                                <td class="img-ph">IMG</td>
-                                <td class="text-start">The Journey of Ulysses And His Potato Farm</td>
-                                <td>Autobiography</td>
-                                <td>
-                                    <div>
-                                        <a>★</a>
-                                        <span>7.6</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
-                                </td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <thead class="py-2">
+                            <!-- table row titles -->
+                            <tr">
+                                <th scope="col" class="col-1">#</th>
+                                <th scope="col" class="col-1"></th>
+                                <th scope="col" class="col-5">Title</th>
+                                <th scope="col" class="col-1">Genre</th>
+                                <th scope="col" class="col-1">Score</th>
+                                <th scope="col" class="col-1">Bookmarked</th>
+                                </tr>
+                        </thead>
+                        <!-- ranking card template -->
+                        <tr>
+                            <th scope="row">{{ranking number}}</th>
+                            <td class="img-ph">{{book cover}}</td>
+                            <td class="text-start">{{book title}}</td>
+                            <td>{{book genre}}</td>
+                            <td>
+                                <div>
+                                    <a>★</a>
+                                    <span>{{book score}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
+                            </td>
+                        </tr>
+                        <!-- placeholder 2nd row -->
+                        <tr>
+                            <th scope="row">2</th>
+                            <td class="img-ph">IMG</td>
+                            <td class="text-start">Hairy Porter: The Great Battle Against The Pickle Lord</td>
+                            <td>Fantasy</td>
+                            <td>
+                                <div>
+                                    <a>★</a>
+                                    <span>7.8</span>
+                                </div>
+                            </td>
+                            <td>
+                                <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
+                            </td>
+                        </tr>
+                        <!-- placeholder 3rd row -->
+                        <tr>
+                            <th scope="row">3</th>
+                            <td class="img-ph">IMG</td>
+                            <td class="text-start">The Journey of Ulysses And His Potato Farm</td>
+                            <td>Autobiography</td>
+                            <td>
+                                <div>
+                                    <a>★</a>
+                                    <span>7.6</span>
+                                </div>
+                            </td>
+                            <td>
+                                <img src="bookmark-symbol.svg" alt="bookmark symbol" height="15px">
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

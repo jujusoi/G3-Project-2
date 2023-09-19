@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const book = require('./books');
 const categories = require('./tags');
+const search = require('./search');
 const { Books, Categories, Wishlist } = require('../../models');
 const handlebars = require('handlebars');
 
@@ -31,11 +32,13 @@ router.get('/', async (req, res) => {
             mappedData.forEach(book => {
                 book.wishlistStuff = mappedWishlist
             });
+            const categoryData = await Categories.findAll();
+            const mappedCategory = categoryData.map((category) => category.get({ plain: true }));
             const userInfo = req.session.user;
             console.log(userInfo);
             if (mappedData) {
                 res.status(200).render('book-display', {
-                    mappedData, userInfo
+                    mappedData, userInfo, mappedCategory
                 })
             } else {
                 res.status(400).json({ message: `Could not return books`});
@@ -43,7 +46,7 @@ router.get('/', async (req, res) => {
         } else {
             const mappedData = bookData.map((book) => book.get({ plain: true }));
             res.status(200).render('book-display', {
-                mappedData
+                mappedData, mappedCategory
             });
         }
     } catch (err) {
@@ -53,5 +56,6 @@ router.get('/', async (req, res) => {
 
 router.use('/books', book);
 router.use('/categories', categories);
+router.use('/search', search);
 
 module.exports = router;

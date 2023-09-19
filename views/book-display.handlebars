@@ -21,29 +21,34 @@
 
         <div id="searchbar" class="banner input-group mb-3">
             <input type="text" class="form-control" placeholder="Search for book titles, authors, etc..."
-                aria-label="search" aria-describedby="button-addon2">
-            <button class="btn btnB dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-label="search" aria-describedby="button-addon2" id="main-searchBar">
+            <button class="btn btnB dropdown-toggle genre-button" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Genre</button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Romance</a></li>
-                <li><a class="dropdown-item" href="#">Comedy</a></li>
+                {{#each mappedCategory as |category|}}
+                {{> category-partial}}
+                {{/each}}
             </ul>
-            <button class="btn btnB dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            <button class="btn btnB dropdown-toggle star-button" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">Rating</button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">★1</a></li>
-                <li><a class="dropdown-item" href="#">★2</a></li>
-                <li><a class="dropdown-item" href="#">★4</a></li>
-                <li><a class="dropdown-item" href="#">★5</a></li>
+                <li><button class="dropdown-item star-item" href="#">★1</button></li>
+                <li><button class="dropdown-item star-item" href="#">★2</button></li>
+                <li><button class="dropdown-item star-item" href="#">★3</button></li>
+                <li><button class="dropdown-item star-item" href="#">★4</button></li>
+                <li><button class="dropdown-item star-item" href="#">★5</button></li>
             </ul>
-            <button class="btn btnA" type="button" id="button-addon2">SEARCH</button>
+            <button class="btn btnA" type="button" id="main-searchBtn">SEARCH</button>
         </div>
 
 
         <div id="ranking">
              <div>
-                <h3 class="fw-bold py-3 ms-3">Book Rankings</h3>
+                {{#if empty}}
+                    <h3 class="fw-bold py-3 ms-3">No books found</h3>
+                {{else}}
+                    <h3 class="fw-bold py-3 ms-3">Book Rankings</h3>
+                {{/if}}
             </div>
             <div class="rounded w-100">
                 <table id="book-table-ting" class="table table-striped table-hover text-center align-middle">

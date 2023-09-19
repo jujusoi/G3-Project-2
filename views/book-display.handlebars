@@ -12,9 +12,9 @@
             </section>
         </div>
     </nav>
-
+{{!-- Advanced search filter --}}
     <div class="container-fluid center w-50">
-        <div id="main-desc" class="banner">
+        <div id="main-desc">
             <!-- discription -->
             <p class="fs-5 text-center">Track your favourite books. Rate and bookmark them into your collection!</p>
         </div>
@@ -60,7 +60,7 @@
                                 </tr>
                         </thead>
                         <!-- ranking card template -->
-                            {{#each mappedData as |book|}}
+                            {{#each mappedData as |book|}} 
                             {{> bookdisplay-partial}}
                             {{/each}}
                     </tbody>
@@ -68,7 +68,8 @@
             </div>
         </div>
     </div>
-    {{#unless userInfo.id}}
-    <link rel="stylesheet" href="/css/blur.css">
-    {{/unless}}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/homepage.js"></script>
+</body>

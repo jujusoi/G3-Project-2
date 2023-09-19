@@ -95,6 +95,10 @@ td {
     height: 100px;
 }
 
+tbody {
+    filter: blur(5px);
+}
+
 
 /* login index */
 
@@ -107,14 +111,14 @@ td {
     font-size: 20px;
     color: #3a3a3a72;
     cursor: pointer;
-}
+  }
 
-.star-filled {
+  .star-filled {
     text-decoration: none;
     font-size: 20px;
     color: #ff8e5a;
     cursor: pointer;
-}
+  }
 
 .bookid-img {
     background-color: tan;

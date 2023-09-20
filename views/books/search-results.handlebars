@@ -1,22 +1,23 @@
-{{#each books}}
-  <div>
-    {{#if volumeInfo.imageLinks}}
-      <img src="{{volumeInfo.imageLinks.smallThumbnail}}" alt="Book Cover">
-    {{else}}
-      <img src="default-thumbnail.jpg" alt="Default Book Cover">
-    {{/if}}
-    <h2>{{volumeInfo.title}}</h2>
-    <p>{{volumeInfo.description}}</p>
-    <p>{{volumeInfo.authors}}</p>
-    <p>{{volumeInfo.publisher}}</p>
-    
-    
-    {{#if volumeInfo.industryIdentifiers}}
-      {{#each volumeInfo.industryIdentifiers}}
-        <p>{{this.type}}: {{this.identifier}}</p>
+<div class="container">
+  {{#if books}}
+    <h3 class="text-center mb-4">Search Results ({{books.length}} results):</h3>
+    <div class="row">
+      {{#each books}}
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <img src="{{volumeInfo.imageLinks.thumbnail}}" class="card-img-top" alt="{{volumeInfo.title}}">
+              <h2 class="card-title">{{volumeInfo.title}}</h5>
+              <p class="card-text">{{volumeInfo.authors}}</p>
+              <p class="card-text">{{volumeInfo.categories}}</p>
+              <p class="card-text">{{volumeInfo.description}}</p>
+              <p class="card-text">Rating: {{volumeInfo.averageRating}}</p>
+             <div class="card-body">  
+            </div>
+          </div>
+        </div>
       {{/each}}
-    {{else}}
-      <p>No industry identifiers available</p>
-    {{/if}}
-  </div>
-{{/each}}
+    </div>
+  {{else}}
+    <h3 class="text-center mb-4">No results found</h3>
+  {{/if}}
+</div>

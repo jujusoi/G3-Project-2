@@ -3,7 +3,6 @@ const Books = require('./Books');
 const Categories = require('./Categories');
 const CategoryJunction = require('./CategoryJunction');
 const Reviews = require('./Reviews');
-const UserRatings = require('./UserRatings');
 const Wishlist = require('./Wishlist');
 
 User.hasMany(Books, {
@@ -22,14 +21,6 @@ Reviews.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-User.hasMany(UserRatings, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-});
-UserRatings.belongsTo(User, {
-    foreignKey: 'user_id',
-});
-
 User.hasMany(Wishlist, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
@@ -38,19 +29,11 @@ Wishlist.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-
-Books.hasMany(UserRatings, {
-    foreignKey: 'book_id',
-    onDelete: 'CASCADE',
-});
-UserRatings.belongsTo(Books, {
-    foreignKey: 'book_id',
-});
-
 Books.hasMany(Reviews, {
     foreignKey: 'book_id',
     onDelete: 'CASCADE',
 });
+
 Reviews.belongsTo(Books, {
     foreignKey: 'book_id',
 });
@@ -79,4 +62,4 @@ Categories.belongsToMany(Books,
     }
 );
 
-module.exports = { User, Books, Categories, CategoryJunction, Reviews, UserRatings, Wishlist };
+module.exports = { User, Books, Categories, CategoryJunction, Reviews, Wishlist };

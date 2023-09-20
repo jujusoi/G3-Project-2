@@ -1,7 +1,23 @@
 [
     {
         "comment_description": "This is an awesome test review",
+        "comment_date": "2023-09-20",
+        "score_given": 3,
         "user_id": 4,
         "book_id": 63
+    },
+    {
+        "comment_description": "One day you will have to answer for your actions",
+        "comment_date": "2023-09-20",
+        "score_given": 2,
+        "user_id": 4,
+        "book_id": 1
+    },
+    {
+        "comment_description": "AMAZING BOOK!!! I LOVE IT!",
+        "comment_date": "2023-09-20",
+        "score_given": 5,
+        "user_id": 4,
+        "book_id": 1
     }
 ]

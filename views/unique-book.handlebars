@@ -36,7 +36,7 @@
                 <!-- right column -->
                 <div class="col ms-5">
                     <!-- book title -->
-                    <h3 class="fw-bold">{{bookData.book_title}}</h3>
+                    <h3 id="book-title" data-bookid="{{serializedData.id}}" class="fw-bold">{{bookData.book_title}}</h3>
                     <!-- book stats -->
                     <div class="d-flex flex-row mt-4">
                         <div class="text-center">
@@ -71,17 +71,17 @@
                         <div class="">
                             <form>
                                 <div>
-                                    <label for="exampleInputEmail1" class="form-label">Overall Rating</label>
+                                    <label for="rating-input" class="form-label">Overall Rating</label>
                                     <div id="usenameHelp" class="form-text">(Enter a rating from 1 to 5)</div>
-                                    <input type="email" class="form-control mt-2" id="exampleInputEmail1"
+                                    <input type="number" min="1" max="5" step="1" class="form-control mt-2" id="rating-input"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="mt-4">
-                                    <label for="exampleInputPassword1" class="form-label">Review</label>
+                                    <label for="rating-input" class="form-label">Review</label>
                                     <div id="usenameHelp" class="form-text">(Add a review on the book)</div>
-                                    <textarea class="form-control mt-2" aria-label="With textarea"></textarea>
+                                    <textarea id="comment-desc" class="form-control mt-2" aria-label="With textarea"></textarea>
                                 </div>
-                                <button type="submit" class="btn btnA mt-5">Submit</button>
+                                <button id="comment-submitBtn" type="submit" class="btn btnA mt-5">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -96,4 +96,4 @@
            
         </div>
     </div>
-    <script src="/js/script.js"></script>
+    <script src="/js/comment.js"></script>

@@ -1,4 +1,3 @@
-
     <nav class="navbar py-3 d-flex justify-content-center">
         <div class="w-50 d-flex justify-content-between">
             <section>
@@ -18,7 +17,7 @@
             <!-- discription -->
             <p class="fs-5 text-center">Track your favourite books. Rate and bookmark them into your collection!</p>
         </div>
-
+    {{#if userInfo.id}}
         <div id="searchbar" class="banner input-group mb-3">
             <input type="text" class="form-control" placeholder="Search for book titles, authors, etc..."
                 aria-label="search" aria-describedby="button-addon2" id="main-searchBar">
@@ -40,7 +39,7 @@
             </ul>
             <button class="btn btnA" type="button" id="main-searchBtn">SEARCH</button>
         </div>
-
+    {{/if}}
 
         <div id="ranking">
              <div>

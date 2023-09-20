@@ -1,17 +1,9 @@
-const router = require('express').Router();
-const api = require('./api');
-const home = require('./home');
+const router = require("express").Router();
+const api = require("./api");
+const home = require("./home");
 
-router.get('/', async (req, res) => {
-    try {
-        res.status(200).json(`Server works`);
-    } catch (err) {
-        res.status(500).json(`Couldn't load up server D:`);
-    }
-});
-
-router.use('/api', api);
-router.use('/home', home);
+router.use("/api", api);
+router.use("/home", home);
 
 module.exports = router;
 

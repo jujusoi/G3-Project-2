@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
         } else {
             const mappedData = bookData.map((book) => book.get({ plain: true }));
             res.status(200).render('book-display', {
-                mappedData, mappedCategory
+                mappedData, 
             });
         }
     } catch (err) {

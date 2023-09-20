@@ -95,9 +95,6 @@ td {
     height: 100px;
 }
 
-tbody {
-    filter: blur(5px);
-}
 
 
 /* login index */

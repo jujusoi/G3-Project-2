@@ -1,7 +1,20 @@
 [
     {
         "comment_description": "This is an awesome test review",
+        "score_given": 3,
         "user_id": 4,
         "book_id": 63
+    },
+    {
+        "comment_description": "One day you will have to answer for your actions",
+        "score_given": 2,
+        "user_id": 4,
+        "book_id": 1
+    },
+    {
+        "comment_description": "AMAZING BOOK!!! I LOVE IT!",
+        "score_given": 5,
+        "user_id": 4,
+        "book_id": 1
     }
 ]

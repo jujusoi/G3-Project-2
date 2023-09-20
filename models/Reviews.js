@@ -14,6 +14,10 @@ Reviews.init({
         type: DataTypes.STRING(4000),
         allowNull: false,
     },
+    score_given: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {

@@ -12,7 +12,15 @@ submitBtn.addEventListener('click', async function(event){
             headers: { 'Content-Type': 'application/json'},
         });
         if (response.ok) {
-            location.reload();
+            const response2 = await fetch(`/api/reviews/${bookVal}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json '},
+            });
+            if (response2.ok) {
+                location.reload();
+            } else {
+                alert(`Could not update book rating`);
+            }
         } else {
             alert('Could not post comment!');
         };

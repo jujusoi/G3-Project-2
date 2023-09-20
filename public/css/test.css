@@ -117,6 +117,12 @@ td {
     cursor: pointer;
 }
 
+.star-star {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ff8e5a;
+}
+
 .bookid-img {
     background-color: tan;
     width: 200px;

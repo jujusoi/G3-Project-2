@@ -19,12 +19,13 @@ book.get('/:id', async (req, res) => {
                 },
             ],
         });
+
         if (bookData) {
             const userInfo = req.session.user;
             const serializedData = bookData.get({plain: true});
-            console.log(serializedData);
+            const numberOfReviews = serializedData.reviews.length;
             res.status(200).render('unique-book', { 
-                serializedData, userInfo },
+                serializedData, userInfo, numberOfReviews },
             );
         } else {
             res.status(404).json({ message: `Could not find book`});

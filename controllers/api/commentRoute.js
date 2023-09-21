@@ -17,12 +17,21 @@ comment.post('/', async (req, res) => {
 
 comment.delete('/:id', async (req, res) => {
     try {
+        const bookData = await Books.findByPk(req.params.id, {
+            include: {
+                model: Reviews,
+            },
+        });
         const deleteData = await Reviews.destroy({
             where: {
                 id: req.body.reviewId,
             }
         });
-        await updateScore(req, res, true);
+        if (bookData.reviews.length <= 1) {
+            res.status(200).json({ message: "Success"});
+        } else {
+            await updateScore(req, res, true);
+        }
     } catch (err) {
         res.status(500).json({ message: `Could not send delete req, ${err}`});
     };

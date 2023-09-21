@@ -1,8 +1,18 @@
  <div id="ranking" class="mt-4 mb-4 p-4">
+                {{#if (equals @root.userInfo.id user.id)}}
+                <div class="d-flex justify-content-between">
+                    <p>Review by: <b>{{user.username}}</b></p>
+                    <div class="d-flex">
+                        <p class="mx-4">{{comment_date}}</p>
+                        <p data-reviewId="{{id}}">Delete</p>
+                    </div>
+                </div>
+                {{else}}
                 <div class="d-flex justify-content-between">
                     <p>Review by: <b>{{user.username}}</b></p>
                     <p>{{comment_date}}</p>
                 </div>
+                {{/if}}
                 <p class="fw-bold mt-3">★{{score_given}}</p>
                 <p class="mt-4">{{comment_description}}</p>
             </div>

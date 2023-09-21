@@ -1,20 +1,4 @@
 
-    <!-- navbar -->
-    <nav class="navbar py-3 d-flex justify-content-center">
-        <div class="w-50 d-flex justify-content-between">
-            <section>
-                <!-- logo -->
-                <img src="/assets/ReadMi-logo.png" width="auto" height="38px" alt="readmi-logo">
-            </section>
-
-            <section>
-                <!-- buttons -->
-                <button type="button" id="loginBtn" class="btn btnA px-3">MY ACCOUNT</button>
-                <button type="button" id="signupBtn" class="btn btnB px-3 ms-2">LOGOUT</button>
-            </section>
-        </div>
-    </nav>
-
     <!-- book section -->
     <div class="d-flex justify-content-center mt-5">
         <div id="selection" class="w-50">
@@ -38,7 +22,7 @@
                 <!-- right column -->
                 <div class="col ms-5">
                     <!-- book title -->
-                    <h3 id="book-title" data-bookid="{{serializedData.id}}" class="fw-bold">{{bookData.book_title}}</h3>
+                    <h3 id="book-title" data-bookid="{{serializedData.id}}" class="fw-bold">{{serializedData.book_title}}</h3>
                     <!-- book stats -->
                     <div class="d-flex flex-row mt-4">
                         <div class="text-center">

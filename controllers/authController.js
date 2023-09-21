@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { User } = require("../models/");
+const loggedIn = require('../config/middleware/alreadyLogged');
 
 // Validate email function
 function validateEmail(email) {
@@ -10,8 +11,13 @@ function validateEmail(email) {
 }
 
 // User Registration Route
-router.get("/register", (req, res) => {
-  res.render("register", { title: "READMi Register" });
+router.get("/register", loggedIn, (req, res) => {
+  if (req.session.user) {
+    const userInfo = req.session.user;
+    res.render("register", { title: "READMi Register", userInfo });
+  } else {
+    res.render("register", { title: "READMi Register" });
+  }
 });
 
 router.post("/register", async (req, res) => {
@@ -49,7 +55,12 @@ router.post("/register", async (req, res) => {
 
 // User Login Route
 router.get("/login", (req, res) => {
-  res.render("login", { title: "READMi Login" }); // Render the login page
+  if (req.session.user) {
+    const userInfo = req.session.user;
+    res.render("login", { title: "READMi Login", userInfo }); // Render the login page
+  } else {
+    res.render("login", { title: "READMi Login" }); // Render the login page
+  }
 });
 
 router.post("/login", async (req, res) => {
@@ -64,7 +75,9 @@ router.post("/login", async (req, res) => {
           email: user.email,
         };
         req.session.isAuthenticated = true;
-        res.redirect("/dashboard"); // Redirect to a protected route like a user dashboard
+        if (req.session.isAuthenticated) {
+          res.redirect("/dashboard"); // Redirect to a protected route like a user dashboard
+        }
       } else {
         res
           .status(401)
@@ -81,8 +94,12 @@ router.post("/login", async (req, res) => {
 
 // User Logout Route
 router.get("/logout", (req, res) => {
-  req.session.destroy(); // Destroy the session to log the user out
-  res.redirect("/login"); // Redirect to login page after logout
+  try {
+    req.session.destroy(); // Destroy the session to log the user out
+    res.status(200).redirect("/login");
+  } catch (err) {
+    res.status(500).json({ message : 'Could not log out'});
+  }
 });
 
 module.exports = router;

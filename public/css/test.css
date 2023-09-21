@@ -2,6 +2,7 @@
     --bg: #ebe5d0;
     --fg: #73473987;
     --fg2: #fffeed;
+    --fg3: #cfcda7;
     --accent-A: #ffbb00;
     --hover-A: #f0b40f;
     --accent-B: #695a55;
@@ -127,4 +128,14 @@ td {
     background-color: tan;
     width: 200px;
     height: 250px;
+}
+
+.trash-can {
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+
+.trash-can:hover {
+    height: 20px;
+    width: 17px;
 }

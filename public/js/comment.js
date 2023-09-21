@@ -1,4 +1,5 @@
 const submitBtn = document.querySelector('#comment-submitBtn');
+const rankingThing = document.querySelector('#selection');
 
 submitBtn.addEventListener('click', async function(event){
     event.preventDefault();
@@ -25,4 +26,20 @@ submitBtn.addEventListener('click', async function(event){
             alert('Could not post comment!');
         };
     };
-})
+});
+
+rankingThing.addEventListener('click', async function(event){
+    const target = event.target;
+    if (target.hasAttribute('data-reviewId')) {
+        const bookVal = document.querySelector('#book-title').getAttribute('data-bookid');
+        const reviewId = target.getAttribute('data-reviewId');
+        const response = await fetch(`/api/reviews/${bookVal}`, {
+            method: 'DELETE',
+            body: JSON.stringify({ reviewId }),
+            headers: { 'Content-Type': 'application/json '},
+        });
+        if (response.ok) {
+            location.reload();
+        }
+    }
+});

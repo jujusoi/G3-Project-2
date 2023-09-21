@@ -1,21 +1,10 @@
-    <nav class="navbar py-3 d-flex justify-content-center">
-        <div class="w-50 d-flex justify-content-between">
-            <section>
-                <!-- logo -->
-                <img src="/assets/ReadMi-logo.png" width="auto" height="38px" alt="readmi-logo">
-            </section>
-            <section>
-                <!-- buttons -->
-                <button type="button" id="loginBtn" class="btn btnB px-3">LOGIN</button>
-                <button type="button" id="signupBtn" class="btn btnA px-3 ms-2">SIGN UP</button>
-            </section>
-        </div>
-    </nav>
 
     <div class="container-fluid center w-50">
         <div id="main-desc" class="banner">
             <!-- discription -->
+            {{#unless userInfo}}
             <p class="fs-5 text-center">Track your favourite books. Rate and bookmark them into your collection!</p>
+            {{/unless}}
         </div>
     {{#if userInfo.id}}
         <div id="searchbar" class="banner input-group mb-3">

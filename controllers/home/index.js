@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
             console.log(userInfo);
             if (mappedData) {
                 res.status(200).render('book-display', {
-                    mappedData, userInfo, mappedCategory
+                    mappedData, userInfo, mappedCategory, title: 'READMi',
                 })
             } else {
                 res.status(400).json({ message: `Could not return books`});
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
         } else {
             const mappedData = bookData.map((book) => book.get({ plain: true }));
             res.status(200).render('book-display', {
-                mappedData, 
+                mappedData, title: 'READMi',
             });
         }
     } catch (err) {

@@ -1,8 +1,9 @@
 const search = require('express').Router();
 const { Books, Categories, Wishlist } = require('../../models');
 const { Op } = require('sequelize');
+const auth = require('../../config/middleware/auth');
 
-search.get('/', async (req, res) => {
+search.get('/', auth, async (req, res) => {
     try {
         if (req.query.genreVal !== 'Genre') {
             const bookData = await Books.findAll({
@@ -64,11 +65,11 @@ const searchies = async (bookData, req, res) => {
         if (mappedData && mappedData.length < 1) {
             const empty = true;
             res.status(200).render('book-display', {
-                mappedData, userInfo, mappedCategory, empty
+                mappedData, userInfo, mappedCategory, empty, title: 'READMi',
             });
         } else if (mappedData && mappedData.length > 1) {
             res.status(200).render('book-display', {
-                mappedData, userInfo, mappedCategory
+                mappedData, userInfo, mappedCategory, title: 'READMi',
             });
         }
         else {
@@ -77,7 +78,7 @@ const searchies = async (bookData, req, res) => {
     } else {
         const mappedData = bookData.map((book) => book.get({ plain: true }));
         res.status(200).render('book-display', {
-            mappedData, mappedCategory, empty
+            mappedData, mappedCategory, empty, title: 'READMi',
         });
     }
 }

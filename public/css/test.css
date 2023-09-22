@@ -7,6 +7,7 @@
     --hover-A: #f0b40f;
     --accent-B: #695a55;
     --hover-B: #574b48;
+    --dlt: #d43f2d;
 }
 
 * {
@@ -47,6 +48,13 @@ p {
     background-color: var(--accent-B);
 }
 
+.dltBtn {
+    font-weight: bold;
+    color: var(--dlt);
+    background-color: white;
+    border: solid 2px var(--dlt);
+}
+
 .btnA:hover {
     background-color: var(--hover-A);
     color: white;
@@ -55,6 +63,11 @@ p {
 .btnB:hover {
     background-color: var(--hover-B);
     color: white;
+}
+
+.dltBtn:hover {
+    color: white;
+    background-color: var(--dlt);
 }
 
 .form-control:focus {
@@ -97,7 +110,6 @@ td {
 }
 
 
-
 /* login index */
 
 #login-container {
@@ -109,9 +121,9 @@ td {
     font-size: 20px;
     color: #3a3a3a72;
     cursor: pointer;
-  }
+}
 
-  .star-filled {
+.star-filled {
     text-decoration: none;
     font-size: 20px;
     color: #ff8e5a;

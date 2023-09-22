@@ -7,9 +7,8 @@ wishlist.post('/:id', async (req, res) => {
             user_id: req.session.user.id,
             book_id: req.params.id,
         });
-        console.log(wishlistData);
         if (wishlistData) {
-            console.log(wishlistData);
+            res.status(204).send();
         } else {
             return;
         }
@@ -26,10 +25,10 @@ wishlist.delete('/:id', async (req, res) => {
                 user_id: req.session.user.id,
             },
         });
-        console.log(`Successfully deleted`);
+        res.status(204).send();
     } catch (err) {
         return;
     }
-})
+});
 
 module.exports = wishlist;

@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+const { Sequelize, Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
@@ -38,6 +38,11 @@ User.init(
         len: [8], // Enforce minimum password length of 8 characters
       },
     },
+    created_at: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: Sequelize.NOW,
+  },
   },
   {
     // runs hook before creating a new user in db then hashes pw using bcrypt before saving

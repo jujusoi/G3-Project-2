@@ -3,8 +3,10 @@
     <div id="selection" class="cont-main">
         <div id="ranking" class="p-5 d-flex flex-row">
             <!-- left column -->
-            <div>
-                <div class="bookid-img"><img src="{{serializedData.icon}}" alt="{{serializedData.book_title}}"></div>
+            <div id="changeRow">
+                <div class="bookid-img d-flex justify-content-center" >
+                    <img src="{{serializedData.icon}}" class="object-fit-contain" width="200px" alt="{{serializedData.book_title}}">
+                </div>
                 <!-- book details -->
                 <div class="mt-4">
                     <ul class="lh-lg">
@@ -19,7 +21,7 @@
                 </div>
             </div>
             <!-- right column -->
-            <div class="col ms-5">
+            <div id="synopsis" class="col ms-5">
                 <!-- book title -->
                 <h3 id="book-title" data-bookid="{{serializedData.id}}" class="fw-bold">{{bookData.book_title}}</h3>
                 <!-- book stats -->

@@ -1,29 +1,31 @@
 <tr>
-                            <th scope="row">{{increment @index}}</th>
-                            {{#if @root.userInfo.id}}
-                            <th class="img-ph book-stuff"><img data-bookid="{{id}}" src="{{icon}}" alt="{{categories.[0].category_name}}" height="100px" width="80px"></th>
-                            <td class="text-start book-stuff" data-bookid="{{id}}">{{book_title}}</td>
-                            {{else}}
-                            <th class="img-ph book-stuff"><img src="{{icon}}" alt="{{categories.[0].category_name}}" height="100px" width="80px"></th>
-                            <td class="text-start book-stuff">{{book_title}}</td>
-                            {{/if}}
-                            <td>{{categories.[0].category_name}}</td>
-                            <td>
-                                <div>
-                                    <a>★</a>
-                                    {{#if average_score}}
-                                    <span>{{average_score}}</span>
-                                    {{else}}
-                                    <span>Unrated</span>
-                                    {{/if}}
-                                </div>
-                            </td>
-                            <td>
-                                {{#if @root.userInfo.id}}
-                                <p class="star {{#if (inWishlist id wishlistStuff)}}star-filled{{else}}star-unfilled{{/if}}" data-wish-bookid="{{id}}">★</p>
-                                {{else}}
-                                <p class="star star-unfilled">★</p>
-                                {{/if}}
-                            </td>
-                        </tr>
-
+    <th scope="row">{{increment @index}}</th>
+    {{#if @root.userInfo.id}}
+    <th class="img-ph book-stuff"><img data-bookid="{{id}}" src="{{icon}}" alt="{{categories.[0].category_name}}"
+            height="100px" width="80px"></th>
+    <td class="text-start book-stuff" data-bookid="{{id}}">{{book_title}}</td>
+    {{else}}
+    <th class="img-ph book-stuff"><img src="{{icon}}" alt="{{categories.[0].category_name}}" height="100px"
+            width="80px"></th>
+    <td class="text-start book-stuff">{{book_title}}</td>
+    {{/if}}
+    <td>{{categories.[0].category_name}}</td>
+    <td>
+        <div>
+            <a>★</a>
+            {{#if average_score}}
+            <span>{{average_score}}</span>
+            {{else}}
+            <span>Unrated</span>
+            {{/if}}
+        </div>
+    </td>
+    <td>
+        {{#if @root.userInfo.id}}
+        <p class="star {{#if (inWishlist id wishlistStuff)}}star-filled{{else}}star-unfilled{{/if}}"
+            data-wish-bookid="{{id}}">⯌</p>
+        {{else}}
+        <p class="star star-unfilled">⯌</p>
+        {{/if}}
+    </td>
+</tr>

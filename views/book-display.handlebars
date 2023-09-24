@@ -1,12 +1,14 @@
-
-    <div class="container-fluid center w-50">
-        <div id="main-desc" class="banner">
+<div class="d-flex justify-content-center">
+    <div class="w-50">
+        {{#unless userInfo}}
+        <div id="main-desc" class="banner text-center">
             <!-- discription -->
-            {{#unless userInfo}}
-            <p class="fs-5 text-center">Track your favourite books. Rate and bookmark them into your collection!</p>
-            {{/unless}}
+                <h5><span class="fw-bold">Login</span> or <span class="fw-bold">Sign Up</span> to track, rate and bookmark your favourite read me into your collection!</h5>
         </div>
-    {{#if userInfo.id}}
+        {{/unless}}
+
+        {{!-- searchbar, filter options --}}
+        {{#if userInfo.id}}
         <div id="searchbar" class="banner input-group mb-3">
             <input type="text" class="form-control" placeholder="Search for book titles, authors, etc..."
                 aria-label="search" aria-describedby="button-addon2" id="main-searchBar">
@@ -28,14 +30,14 @@
             </ul>
             <button class="btn btnA" type="button" id="main-searchBtn">SEARCH</button>
         </div>
-    {{/if}}
+        {{/if}}
 
         <div id="ranking">
-             <div>
+            <div>
                 {{#if empty}}
-                    <h3 class="fw-bold py-3 ms-3">No books found</h3>
+                <h3 class="fw-bold py-3 ms-3">No books found</h3>
                 {{else}}
-                    <h3 class="fw-bold py-3 ms-3">Book Rankings</h3>
+                <h3 class="fw-bold py-3 ms-3">Book Rankings</h3>
                 {{/if}}
             </div>
             <div class="rounded w-100">
@@ -49,19 +51,20 @@
                                 <th scope="col" class="col-5">Title</th>
                                 <th scope="col" class="col-1">Genre</th>
                                 <th scope="col" class="col-1">Score</th>
-                                <th scope="col" class="col-1">★</th>
-                                </tr>
+                                <th scope="col" class="col-1">Bookmark</th>
+                            </tr>
                         </thead>
                         <!-- ranking card template -->
-                            {{#each mappedData as |book|}}
-                            {{> bookdisplay-partial}}
-                            {{/each}}
+                        {{#each mappedData as |book|}}
+                        {{> bookdisplay-partial}}
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    {{#unless userInfo.id}}
-    <link rel="stylesheet" href="/css/blur.css">
-    {{/unless}}
-    <script src="/js/homepage.js"></script>
+</div>
+{{!-- {{#unless userInfo.id}}
+<link rel="stylesheet" href="/css/blur.css">
+{{/unless}} --}}
+<script src="/js/homepage.js"></script>

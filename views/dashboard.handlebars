@@ -11,28 +11,24 @@
                 <div>
                     <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter" type="button" id="editBtn" class="btn btnB px-3 ms-2"><span class="pe-2">✎</span> Edit
                         Username</button>
-                    
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-color: #AB9080; color: white;">
-      <div class="modal-header mt-3" style="border-bottom: 0px;">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background-color: #AB9080; color: white;">
+                      <div class="modal-header mt-3" style="border-bottom: 0px;">               
         <h5 class="modal-title m-auto" id="exampleModalCenterTitle">Enter new username</h5>
-      </div>
-      <div class="modal-body">
- <form id="editUsernameForm" class="px-5">
-                        <input type="text" id="newUsername" class="form-control" placeholder="New username here"
+                      </div>
+                      <div class="modal-body">
+                        <form id="editUsernameForm" class="px-5">
+                            <input type="text" id="newUsername" class="form-control" placeholder="New username here"
                             required>
-                                  <div class="modal-footer mt-3" style="border-top: 0px;">
-                                    <button type="submit" class="m-auto btn btnA px-3">Save Changes</button>
-      </div>
-
-                    </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
+                            <div class="modal-footer mt-3" style="border-top: 0px;">
+                        <button type="submit" class="m-auto btn btnA px-3">Save Changes</button>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                     <!-- Edit Username Form HIDDEN BY DEFAULT UNTIL EDIT CLICK -->
                     <button type="button" id="dltBtn" class="btn dltBtn px-3 ms-2"><span class="pe-2">✖</span> Delete
                         Account</button>
@@ -82,7 +78,6 @@
                             <td class="cross" data-wishlist="{{book.id}}">✖</td>
                         </tr>
                         {{/each}}
-
                     </tbody>
                 </table>
             </div>

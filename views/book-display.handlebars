@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
-    <div class="cont-main">
-        {{#unless userInfo}}
+    <div id="bookHolder" class="w-50">
+        {{#unless userInfo.id}}
         <div id="main-desc" class="banner text-center">
             <!-- discription -->
                 <h5><span class="fw-bold">Login</span> or <span class="fw-bold">Sign Up</span> to track, rate and bookmark your favourite read me into your collection!</h5>
@@ -68,3 +68,6 @@
 <link rel="stylesheet" href="/css/blur.css">
 {{/unless}} --}}
 <script src="/js/homepage.js"></script>
+{{#if userInfo.id}}
+<script src="/js/loggedInHome.js"></script>
+{{/if}}

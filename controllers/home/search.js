@@ -20,8 +20,7 @@ search.get('/', auth, async (req, res) => {
                         [Op.in]: [req.query.genreVal],
                     },
                 } }],
-                order: [[ 'id', 'ASC']],
-                limit: 20,
+                order: [[ 'average_score', 'DESC']],
             });
             searchies(bookData, req, res);
         } else {
@@ -35,8 +34,7 @@ search.get('/', auth, async (req, res) => {
                     },
                 },
                 include: [{ model: Categories }],
-                order: [[ 'id', 'ASC']],
-                limit: 20,
+                order: [[ 'average_score', 'ASC']],
             });
             searchies(bookData, req, res);
         }
@@ -61,13 +59,12 @@ const searchies = async (bookData, req, res) => {
             book.wishlistStuff = mappedWishlist
         });
         const userInfo = req.session.user;
-
         if (mappedData && mappedData.length < 1) {
             const empty = true;
             res.status(200).render('book-display', {
                 mappedData, userInfo, mappedCategory, empty, title: 'READMi',
             });
-        } else if (mappedData && mappedData.length > 1) {
+        } else if (mappedData && mappedData.length >= 1) {
             res.status(200).render('book-display', {
                 mappedData, userInfo, mappedCategory, title: 'READMi',
             });

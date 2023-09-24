@@ -19,7 +19,7 @@
                     <!-- logo -->
                     <img src="/assets/ReadMi-logo.png" width="auto" height="38px" alt="readmi-logo" id="readmi-logo">
                 </section>
-                {{#if userInfo}}
+                {{#if userInfo.id}}
                 <section>
                     <!-- logged-in buttons -->
                     {{#unless dashBtnCheck}}
@@ -48,6 +48,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {{#if userInfo}}
     <script src="/js/mainbuttons.js"></script>
+            {{#unless dashBtnCheck}}
+    <script src="/js/dshBrdBtn.js"></script>
+    {{/unless}}
     {{else}}
     <script src="/js/loggedOutbuttons.js"></script>
     {{/if}}

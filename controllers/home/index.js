@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
     try {
         const bookData = await Books.findAll({
             include: [{ model: Categories }],
-            order: [[ 'id', 'ASC']],
-            limit: 20,
+            order: [[ 'average_score', 'DESC']],
+            limit: 50,
         });
         if (req.session.user) {
             const wishlistData = await Wishlist.findAll({
@@ -35,8 +35,7 @@ router.get('/', async (req, res) => {
             const categoryData = await Categories.findAll();
             const mappedCategory = categoryData.map((category) => category.get({ plain: true }));
             const userInfo = req.session.user;
-            console.log(userInfo);
-            if (mappedData) {
+            if (mappedData) {                
                 res.status(200).render('book-display', {
                     mappedData, userInfo, mappedCategory, title: 'READMi',
                 })

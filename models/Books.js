@@ -11,8 +11,8 @@ Books.init({
         allowNull: false,
     },
     book_title: {
-        type: DataTypes.STRING(200),
-        allowNull: false,
+        type: DataTypes.STRING(1000),
+        allowNull: true,
     },
     book_description: {
         type: DataTypes.TEXT,
@@ -22,22 +22,21 @@ Books.init({
     },
     publish_year: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     author: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     page_count: {
         type: DataTypes.INTEGER,
-        allowNull: false,
     },
     mature: {
         type: DataTypes.BOOLEAN,
     },
     icon: {
-        type: DataTypes.STRING(1000),
-        allowNull: false,
+        type: DataTypes.STRING(4000),
+        allowNull: true,
     },
     average_score: {
         type: DataTypes.FLOAT,

@@ -28,7 +28,8 @@ router.get("/dashboard", auth, async (req, res) => {
         exclude: ["password"],
       },
     });
-    const dashBtnCheck = false;
+    req.session.user.username = userStuff.username;
+    const dashBtnCheck = true;
     const userDate = userStuff.created_at;
     const mappedWishlist = wishlistData.map((wishlist) =>
       wishlist.get({ plain: true })

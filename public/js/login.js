@@ -1,31 +1,28 @@
 const signUp = document.querySelector("#steignupBtn");
+const loginForm = document.querySelector("#loginSbm");
 
-signUp.addEventListener("click", function () {
-  location.href = "/register";
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registration-form");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/register", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        // Registration was successful, redirect to login page or show a success message
-        window.location.href = "/login";
-      } else {
-        // Handle registration error, display an error message, or stay on the registration page
-        console.error("Registration failed");
-      }
-    } catch (error) {
-      console.error("An error occurred", error);
-    }
+signUp.addEventListener("click", async function () {
+  const response = await fetch("/register", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
   });
+  if (response.ok) {
+    location.href = "/register";
+  };
 });
+
+loginForm.addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
+  const response = await fetch('/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    location.href = '/home';
+  } else {
+    return;
+  }
+})

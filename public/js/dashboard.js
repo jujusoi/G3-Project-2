@@ -1,11 +1,20 @@
+
 const bookClick = document.querySelector("#book-table-ting");
 
 // add bookmarks
-bookClick.addEventListener("click", function (event) {
+bookClick.addEventListener("click", async function (event) {
   const target = event.target;
   if (target.hasAttribute("data-bookid")) {
     const id = target.getAttribute("data-bookid");
-    location.href = `/home/books/${id}`;
+    const response = await fetch(`/home/books/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      location.href = `/home/books/${id}`;
+    } else {
+      return;
+    }
   } else {
     return;
   }
@@ -28,13 +37,6 @@ bookClick.addEventListener("click", async function (event) {
   }
 });
 
-// Show the edit username form and hide other elements
-document.querySelector('#editBtn').addEventListener('click', function () {
-  document.querySelector('#editUsernameForm').style.display = 'block';
-  document.querySelector('#editBtn').style.display = 'none';
-  document.querySelector('#dltBtn').style.display = 'none';
-});
-
 // Edit Username
 document.querySelector('#editUsernameForm').addEventListener('submit', async function (event) {
   event.preventDefault();
@@ -45,14 +47,7 @@ document.querySelector('#editUsernameForm').addEventListener('submit', async fun
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
-    // updates username
     document.querySelector('.fw-bold').textContent = newUsername;
-
-    // hides form and shows username
-    document.querySelector('#editUsernameForm').style.display = 'none';
-    document.querySelector('.fw-bold').style.display = 'block';
-    document.querySelector('#editBtn').style.display = 'block';
-    document.querySelector('#dltBtn').style.display = 'block';
   } else {
     alert('Failed to update username. Please try again.');
   }

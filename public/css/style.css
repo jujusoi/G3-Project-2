@@ -136,11 +136,11 @@ td {
     color: #ff8e5a;
 }
 
-.bookid-img {
+/* .bookid-img {
     background-color: tan;
     width: 200px;
     height: 250px;
-}
+} */
 
 .trash-can {
     cursor: pointer;
@@ -164,36 +164,67 @@ td {
 /* media queries */
 
 @media (max-width: 768px) {
-    .cont-main {
+    .cont-nav {
         width: 90%;
     }
+
+    .cont-main {
+        width: 100%;
+    }
+
     .cont-sec {
         width: 75%;
+    }
+
+    #changeRow {
+        display: flex;
+        flex-direction: row !important;
+    }
+
+    #synopsis {
+        margin-left: 0 !important;
+    }
+
+    #ranking {
+        flex-direction: column !important;
+    }
+
+    .bookid-img img {
+        width: auto;
     }
 }
 
 @media (min-width: 768px) {
+
+    .cont-nav,
     .cont-main {
         width: 75%;
     }
+
     .cont-sec {
         width: 50%;
     }
 }
 
 @media (min-width: 1024px) {
+
+    .cont-nav,
     .cont-main {
         width: 50%;
     }
+
     .cont-sec {
         width: 50%;
     }
 }
 
 @media (min-width: 1440px) {
+
+    .cont-nav,
     .cont-main {
         width: 50%;
     }
+
     .cont-sec {
         width: 30%;
     }

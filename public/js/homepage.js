@@ -21,9 +21,7 @@ bookClick.addEventListener('click', async function(event) {
             body: JSON.stringify({ id }),
             headers: { 'Content-Type': 'application/json'},
         });
-        if (response.ok) {
-            console.log(`Sent req`);
-        } else {
+        if (!response.ok) {
             alert(`Could not save`);
         }
     } else if (target.hasAttribute('data-wish-bookid') && target.classList.contains('star-filled')) {
@@ -35,9 +33,7 @@ bookClick.addEventListener('click', async function(event) {
             body: JSON.stringify({ id }),
             headers: { 'Content-Type': 'application/json'},
         });
-        if (response.ok) {
-            console.log(`Sent req`);
-        } else {
+        if (!response.ok) {
             alert(`Could not delete`);
         }
     }

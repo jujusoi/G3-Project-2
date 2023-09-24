@@ -8,7 +8,8 @@ const loggedIn = require('../config/middleware/alreadyLogged');
 function validateEmail(email) {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   return emailPattern.test(email);
-}
+};
+
 
 // User Registration Route
 router.get("/register", loggedIn, (req, res) => {
@@ -76,7 +77,7 @@ router.post("/login", async (req, res) => {
         };
         req.session.isAuthenticated = true;
         if (req.session.isAuthenticated) {
-          res.redirect("/dashboard"); // Redirect to a protected route like a user dashboard
+          res.redirect("/home");
         }
       } else {
         res
@@ -92,11 +93,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
+
 // User Logout Route
-router.get("/logout", (req, res) => {
+router.get("/logout", async (req, res) => {
   try {
     req.session.destroy(); // Destroy the session to log the user out
-    res.status(200).redirect("/login");
+    res.redirect("/login");
   } catch (err) {
     res.status(500).json({ message : 'Could not log out'});
   }

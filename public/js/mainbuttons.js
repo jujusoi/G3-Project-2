@@ -1,20 +1,24 @@
 const loginButt = document.querySelector("#loginBtn");
-const homeBtn = document.querySelector("#homeBtn");
-const dashBtn = document.querySelector('#dashboardBtn');
 const mainImg = document.querySelector('#readmi-logo');
 
-homeBtn.addEventListener('click', function() {
-    location.href = '/home';
+loginButt.addEventListener('click', async function() {
+    const response = await fetch('/logout', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},
+    });
+    if (response.ok) {
+        location.href = '/login';
+    } else {
+        return;
+    };
 });
 
-loginButt.addEventListener('click', function() {
-    location.href = '/logout';
-});
-
-dashBtn.addEventListener('click', function() {
-    location.href = '/dashboard';
-});
-
-mainImg.addEventListener('click', function() {
-    location.href = '/home';
+mainImg.addEventListener('click', async function() {
+    const response = await fetch('/home', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'},
+    });
+    if (response.ok) {
+        location.href = '/home';
+    };
 });

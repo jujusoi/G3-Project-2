@@ -28,6 +28,8 @@ router.get("/dashboard", auth, async (req, res) => {
         exclude: ["password"],
       },
     });
+    req.session.user.username = userStuff.username;
+    const dashBtnCheck = true;
     const userDate = userStuff.created_at;
     const mappedWishlist = wishlistData.map((wishlist) =>
       wishlist.get({ plain: true })
@@ -37,6 +39,7 @@ router.get("/dashboard", auth, async (req, res) => {
       userInfo: req.session.user,
       mappedWishlist,
       userDate,
+      dashBtnCheck,
     }); // Pass the user data to the dashboard view
   } catch (err) {
     res.status(500).json({ message: `Could not make request, ${err}` });

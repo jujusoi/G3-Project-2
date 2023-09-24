@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
     try {
         const bookData = await Books.findAll({
             include: [{ model: Categories }],
-            order: [[ 'id', 'ASC']],
-            limit: 20,
+            order: [[ 'average_score', 'DESC']],
+            limit: 50,
         });
         if (req.session.user) {
             const wishlistData = await Wishlist.findAll({

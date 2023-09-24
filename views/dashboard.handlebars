@@ -62,9 +62,9 @@
                         <!-- ranking card template -->
                         {{#each mappedWishlist as |wishlist| }}
                         <tr>
-                            <td class="img-ph"><img height="100" width="80" data-bookid="{{book.id}}"
+                            <td class="img-ph book-stuff"><img height="100" width="80" data-bookid="{{book.id}}"
                                     src="{{book.icon}}" alt="{{book.book_title}}"></td>
-                            <td class="text-start" data-bookid="{{book.id}}">{{book.book_title}}</td>
+                            <td class="text-start book-stuff" data-bookid="{{book.id}}">{{book.book_title}}</td>
                             <td>{{book.categories.[0].category_name}}</td>
                             <td>
                                 <div>

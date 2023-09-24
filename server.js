@@ -73,6 +73,10 @@ app.get("/books/search", async (req, res) => {
 const routes = require("./controllers");
 app.use(routes);
 
+app.get('*', (req, res) => {
+  res.redirect('/home');
+});
+
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

@@ -1,50 +1,26 @@
 [
     {
-        "id": "1",
-        "category_name": "Civil Law"
+        "category_name": "Fiction"
     },
     {
-        "id": "2",
-        "category_name": "Juvenile Fiction"
+        "category_name": "Anime & Manga"
     },
     {
-        "id": "3",
-        "category_name": "Adventure"
-    },
-    {
-        "id": "4",
-        "category_name": "Adventure Stories"
-    },
-    {
-        "id": "5",
-        "category_name": "Performing Arts"
-    },
-    {
-        "id": "6",
-        "category_name": "Alternative Histories (Fiction)"
-    },
-    {
-        "id": "7",
-        "category_name": "Boarding School Students"
-    },
-    {
-        "id": "8",
-        "category_name": "Bank Robberies"
-    },
-    {
-        "id": "9",
-        "category_name": "Drama"
-    },
-    {
-        "id": "10",
         "category_name": "History"
     },
     {
-        "id": "11",
-        "category_name": "Comics & Graphic Novels"
+        "category_name": "Biography"
     },
     {
-        "id": "12",
-        "category_name": "Business & Economics"
+        "category_name": "Art"
+    },
+    {
+        "category_name": "Horror"
+    },
+    {
+        "category_name": "Psychology"
+    },
+    {
+        "category_name": "Science"
     }
 ]

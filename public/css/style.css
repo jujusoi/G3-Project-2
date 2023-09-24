@@ -156,7 +156,7 @@ td {
     cursor: pointer;
 }
 
-.cross {
+.cross, .book-stuff {
     cursor: pointer;
 }
 
@@ -191,6 +191,9 @@ td {
 
     .bookid-img img {
         width: auto;
+    }
+    #bookHolder {
+        width: 100%!important;
     }
 }
 

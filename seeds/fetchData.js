@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const fetchData = async (num) => {
     for (let x = 0; x < num; x++) {
-        const apiKey = `https://www.googleapis.com/books/v1/volumes?q=subject:${subjectRandomizer()}&maxResults=${1}&key=${process.env.GOOGLE_BOOKS_API_KEY}`;
+        const apiKey = `https://www.googleapis.com/books/v1/volumes?q=intitle:physics+${x}&maxResults=${1}&key=${process.env.GOOGLE_BOOKS_API_KEY}`;
     
         axios
         .get(apiKey)
@@ -34,8 +34,7 @@ const printInfo = async (info) => {
                 uploaded_by: getRandomUploader(),
                 category_name: book.volumeInfo.categories,
             };
-
-            console.log(book.volumeInfo.categories);
+            console.log(newObj);
             writeIntoJSON(newObj);
         });
     } catch (err) {

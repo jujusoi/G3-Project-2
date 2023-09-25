@@ -1,4 +1,6 @@
-# READMi
+# 📖 ReadMi
+
+ReadMi is a full-stack web application that simplifies book discovery and management. Search for books, create wishlists, engage with the reading community, and more in this user-friendly platform.
 
 ## 🌟 Features
 
@@ -9,22 +11,45 @@ This full stack project provides the following features:
 - **Comments:** Engage with the community by leaving comments on books.
 - **Wishlist:** Save books you're interested in for later.
 
-## 📸 Screenshot
-
-<div style="text-align:center">
-  <img src="" alt="App Screenshot" width="50%"/>
-</div>
-
 ## 🚀 Demo GIF
 
-<div align="center">
-  <img src=" " alt="App Demo GIF" width="75%">
-</div>
+![Demo GIF](/assets/gifs/ReadMi-Demo.gif)
+
+## 📸 Screenshots
+
+### Home
+
+![Homepage](/assets/screenshots/home.png)
+
+### Register
+
+![Register](/assets/screenshots/register.png)
+
+### Login
+
+![Login](/assets/screenshots/login.png)
+
+### Dashboard
+
+![Dashboard](/assets/screenshots/dashboard.png)
+
+## Book Display
+
+![Book Display](/assets/screenshots/book-display.png)
+
+### Edit Username
+
+![Edit Username](/assets/screenshots/edituserfunction.png)
+
+### Delete Account Function
+
+![Delete Account Prompt](/assets/screenshots/deleteprompt.png)
+![Delete Account Confirmation](/assets/screenshots/deleteconfirmation.png)
 
 ## 📷 Deployment
 
-- [Heroku]() add link to heroku here
-- [Github](https://github.com/jujusoi/G3-Project-2)
+- **Live Demo:** [Heroku](https://dry-savannah-12816-a8270f4eeafb.herokuapp.com/home)
+- **Source Code:** [ReadMi GitHub Repository](https://github.com/jujusoi/G3-ReadMi)
 
 ## 🛠 Setup
 
@@ -63,6 +88,16 @@ npm run seeds/seed.js
 ```
 npm start
 ```
+
+## ⚙️ Usage
+
+To use READMi, follow these steps:
+
+1. Register for an account or log in if you already have one.
+2. Use the book search feature to find books by title, author, or category.
+3. Save interesting books to your wishlist.
+4. Leave comments and engage with the community on book pages.
+5. Manage your account settings, including editing your username and deleting your account.
 
 ## 📚 Resources
 

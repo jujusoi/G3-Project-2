@@ -14,7 +14,7 @@ Wishlist.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'user_table',
             key: 'id',
         },
     },

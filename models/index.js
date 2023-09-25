@@ -1,4 +1,4 @@
-const User = require('./user');
+const User = require('./User');
 const Books = require('./Books');
 const Categories = require('./Categories');
 const CategoryJunction = require('./CategoryJunction');
